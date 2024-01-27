@@ -7,14 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInit2a50202d99a7c3f94f5a36b77d46d915
 {
     public static $prefixLengthsPsr4 = array (
-        'W' => 
+        'w' => 
         array (
-            'Wdpf\\Pagination\\' => 16,
+            'wdpf\\pagination\\' => 16,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Wdpf\\Pagination\\' => 
+        'wdpf\\pagination\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

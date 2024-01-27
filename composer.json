@@ -1,26 +1,19 @@
 {
     "name": "wdpf/pagination",
-    "description": "pagination system total free",
+    "description": "pagination system.",
     "type": "library",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Wdpf\\Pagination\\": "src/"
-        }
-    },
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=7.1.3"
-    },
     "authors": [
         {
-          "name": "Israt Ahamed Sabbir",
-          "email": "isratahamedsabbir@gmail.com"
+            "name": "Israt Ahamed Sabbir",
+            "email": "isratahamedsabbir@gmail.com"
         }
     ],
-    "config": {
-        "platform": {
-             "php": "7.4.999"
-        }
-    }
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {"wdpf\\pagination\\": "src/"}
+    },
+    "require": {}
 }
+
+
