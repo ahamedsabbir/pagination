@@ -12,11 +12,8 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "wdpf\\": "src/"
-        },
-        "files": [
-          "src/pagination.php"
-        ]
+            "wdpf\\pagination\\": "src/"
+        }
     },
     "require": {}
 }
