@@ -1,3 +1,6 @@
+#Install
+composer require wdpf/pagination
+
 # make object
 use vendor\pagination as pagi;
 $pagination = new pagi\pagination();
