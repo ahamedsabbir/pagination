@@ -11,5 +11,24 @@
       "name": "Israt Ahamed Sabbir",
       "email": "isratahamedsabbir@gmail.com"
     }
-  ]
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "pagination\\": "src/pagination/"
+    },
+    "files": [
+      "src/pagination/pagination.php"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "pagination\\pagination"
+      ]
+    }
+  },
+  "require-dev": {
+    "orchestra/testbench": "^3.8"
+  }
 }
