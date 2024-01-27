@@ -36,6 +36,25 @@ class pagination{
         $this->pageNo = isset($_GET[$this->pageName]) && $_GET[$this->pageName]>0 ? $_GET[$this->pageName] : 1;
         return $this;
     }
+    public function style(){
+        echo <<<html
+<style>
+.pagination{}
+.pagination>li{
+    display: inline-block;
+}
+.pagination>li>a{
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+</style>
+<ul class="pagination">
+    $this->pagination();
+</ul>
+html;
+    }
     public function pagination(){
         $prevPage = (( $this->pageNo - 1 ) > 0) ? ($this->pageNo - 1) : 1;
         $prev_disabled = ($this->pageNo == 1) ? "display:none;" : "";
