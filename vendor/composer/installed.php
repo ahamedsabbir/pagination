@@ -3,7 +3,7 @@
         'name' => 'wdpf/pagination',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'e004068579f015e0cdc8fe4e53ef1cca52188280',
+        'reference' => 'b666323767743f537c92f7feb1e188576d4d8457',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'wdpf/pagination' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'e004068579f015e0cdc8fe4e53ef1cca52188280',
+            'reference' => 'b666323767743f537c92f7feb1e188576d4d8457',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
