@@ -12,7 +12,7 @@
       "email": "isratahamedsabbir@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "sabbir",
   "autoload": {
     "psr-4": {
       "pagination\\": "src/pagination/"
@@ -27,8 +27,5 @@
         "pagination\\pagination"
       ]
     }
-  },
-  "require-dev": {
-    "orchestra/testbench": "^3.8"
   }
 }
