@@ -1,4 +1,3 @@
-/*
 # make object
 use vendor\pagination as pagi;
 $pagination = new pagi\pagination();
@@ -15,4 +14,3 @@ $pagination->frontend($totalRecord, 'p', 20)->pagination();
 # multiple pagenation system
 $page = "&page=".$_GET["page"];
 $pagination->frontend($totalRecord, 'p', 20, $page)->bootstrap();
-*/
