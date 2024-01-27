@@ -51,7 +51,7 @@ class pagination{
 }
 </style>
 <ul class="pagination">
-    $this->pagination();
+    {$this->pagination()}
 </ul>
 html;
     }
