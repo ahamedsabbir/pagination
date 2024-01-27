@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'wdpf\\pagination\\' => array($baseDir . '/src'),
+    'Wdpf\\Pagination\\' => array($baseDir . '/src'),
 );

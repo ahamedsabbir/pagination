@@ -1,22 +1,13 @@
 {
-  "name": "wdpf/pagination",
-  "description": "it can work multiple pagination.",
-  "type": "library",
-  "require": {
-    "php": ">=7.0",
-    "nette/database": "^3.1"
-  },
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Israt Ahamed Sabbir",
-      "email": "isratahamedsabbir@gmail.com"
-    }
-  ],
-  "minimum-stability": "dev",
-  "autoload": {
-    "psr-4": {
-      "wdpf\\pagination\\": "src/"
-    }
-  }
+    "name": "wdpf/pagination",
+    "description": "pagination system total free",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Wdpf\\Pagination\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
 }
