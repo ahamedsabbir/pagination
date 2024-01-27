@@ -9,7 +9,7 @@
             "email": "isratahamedsabbir@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "div",
     "autoload": {
         "psr-4": {
             "wdpf\\pagination\\": "src/"
