@@ -5,12 +5,11 @@
   "require": {
     "php": ">=5.3.0"
   },
-  "license": "proprietary",
+  "license": "wdpf",
   "authors": [
     {
       "name": "Israt Ahamed Sabbir",
       "email": "isratahamedsabbir@gmail.com"
     }
-  ],
-  "minimum-stability": "dev"
+  ]
 }
