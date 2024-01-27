@@ -13,7 +13,10 @@
     "autoload": {
         "psr-4": {
             "wdpf\\pagination\\": "src/"
-        }
+        },
+        "files": [
+          "src/pagination/pagination.php"
+        ]
     },
     "require": {}
 }
