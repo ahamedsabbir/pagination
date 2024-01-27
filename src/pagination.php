@@ -1,5 +1,5 @@
 <?php
-namespace vendor\pagination;
+namespace wdpf\pagination;
 class pagination{
     public $pageName;
     public $rowsSize;
