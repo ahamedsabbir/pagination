@@ -20,8 +20,16 @@ class pagination{
         if($rowsSize){
             $this->rowsSize = $rowsSize;
         }
-        $this->pageNo = isset($_GET[$this->pageName]) && $_GET[$this->pageName]>0 ? $_GET[$this->pageName] : 1;
+        $this->validation();
         $this->beganRow = ($this->pageNo-1)*$this->rowsSize;
+    }
+    private function validation(){
+        $data = isset($_GET[$this->pageName]) && $_GET[$this->pageName]>0 ? $_GET[$this->pageName] : 1;
+        $data = (int) $data === 0 ? 1 : (int) $data;
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+		$this->pageNo = $data;
     }
     public function frontend($totalRows, $pageName = false, $rowsSize = false, $link = false){
         $this->totalRows = ceil($totalRows/$this->rowsSize);
@@ -34,26 +42,72 @@ class pagination{
         if($link){
             $this->link = $link;
         }
-        $this->pageNo = isset($_GET[$this->pageName]) && $_GET[$this->pageName]>0 ? $_GET[$this->pageName] : 1;
+        $this->validation();
         return $this;
     }
     public function style(){
         echo <<<html
 <style>
 .pagination{}
-.pagination>li{
-    display: inline-block;
+.pagination>ul{
+    margin: 0;
+    padding: 0;
 }
-.pagination>li>a{
-    color: black;
+.pagination>ul>li{
+    list-style: none;
+    display: inline-block;
     float: left;
-    padding: 8px 16px;
+    padding: 8px 8px;
+    background-color: #EDEFF6;
+}
+.pagination>ul>li>a{
+    color: black;
     text-decoration: none;
+    font-size: large;
 }
 </style>
-<ul class="pagination">
-    {$this->pagination()}
-</ul>
+<div class="pagination">
+    <ul class="pagination">
+        {$this->pagination()}
+    </ul>
+</div>
+html;
+    }
+    public function pagiForm(){
+        echo <<<html
+<style>
+.pagination{}
+.pagination>form{}
+.pagination>form>input{
+    padding:5px;
+    width: 100px;
+}
+.pagination>form>button{
+    padding:5px;
+}
+.pagination>ul{
+    margin: 0;
+    padding: 0;
+}
+.pagination>ul>li{
+    list-style: none;
+    display: inline-block;
+    float: left;
+    padding: 8px 8px;
+    background-color: #EDEFF6;
+}
+.pagination>ul>li>a{
+    color: black;
+    text-decoration: none;
+    font-size: large;
+}
+</style>
+<div class="pagination">
+    {$this->form()}
+    <ul class="pagination">
+        {$this->pagination()}
+    </ul>
+</div>
 html;
     }
     public function pagination(){
@@ -70,12 +124,20 @@ html;
     }
     public function simple(){
         for ($i=1; $i <= $this->totalRows ; $i++) {
-            $active = ($this->pageNo == $i) ? "background-color:green;" : "";
+            $active = ($this->pageNo == $i) ? "background-color:#1F88D9;" : "";
             if (abs($this->pageNo - $i) < 5) {
                 $this->list .= "<li style='{$active}'><a href='?{$this->pageName}={$i}{$this->link}'>{$i}</a></li>";
             }
         }
         return $this->list;
+    }
+    public function form(){
+        return <<<html
+<form method="get">
+    <input type="number" name="{$this->pageName}" min="1" max="{$this->totalRows}"/>
+    <button type="submit" value="submit">GO</button>
+</form>
+html;
     }
     public function bootstrap(){
         $prevPage = (( $this->pageNo - 1 ) > 0) ? ($this->pageNo - 1) : 1;
