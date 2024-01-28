@@ -92,7 +92,7 @@ html;
         $next_disabled = ($this->pageNo == $this->totalRows) ? "disabled" : "";
         $this->list .= "<li class='page-item {$next_disabled}'><a class='page-link' href='?{$this->pageName}={$nextPage}{$this->link}'>Next</a></li>";
         $this->list .= "<li class='page-item {$next_disabled}'><a class='page-link' href='?{$this->pageName}={$this->totalRows}{$this->link}'>Last</a></li>";
-        echo $this->list;
+        return $this->list;
     }
 }
 ?>
