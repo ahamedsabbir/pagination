@@ -52,7 +52,7 @@ class pagination{
 }
 </style>
 <ul class="pagination">
-    {$this->list}
+    {$this->pagination()}
 </ul>
 html;
     }
@@ -66,6 +66,7 @@ html;
         $next_disabled = ($this->pageNo == $this->totalRows) ? "display:none;" : "";
         $this->list .= "<li style='{$next_disabled}'><a href='?{$this->pageName}={$nextPage}{$this->link}'>Next</a></li>";
         $this->list .= "<li style='{$next_disabled}' ><a href='?{$this->pageName}={$this->totalRows}{$this->link}'>Last</a></li>";
+        return $this->list;
     }
     public function simple(){
         for ($i=1; $i <= $this->totalRows ; $i++) {
@@ -74,6 +75,7 @@ html;
                 $this->list .= "<li style='{$active}'><a href='?{$this->pageName}={$i}{$this->link}'>{$i}</a></li>";
             }
         }
+        return $this->list;
     }
     public function bootstrap(){
         $prevPage = (( $this->pageNo - 1 ) > 0) ? ($this->pageNo - 1) : 1;
@@ -90,6 +92,7 @@ html;
         $next_disabled = ($this->pageNo == $this->totalRows) ? "disabled" : "";
         $this->list .= "<li class='page-item {$next_disabled}'><a class='page-link' href='?{$this->pageName}={$nextPage}{$this->link}'>Next</a></li>";
         $this->list .= "<li class='page-item {$next_disabled}'><a class='page-link' href='?{$this->pageName}={$this->totalRows}{$this->link}'>Last</a></li>";
+        echo $this->list;
     }
 }
 ?>
