@@ -7,6 +7,7 @@ class pagination{
     private $link;
     private $pageNo;
     private $totalRows;
+    private $list;
     function __construct(){
         $this->pageName = "page";
         $this->rowsSize = 10;
@@ -51,44 +52,44 @@ class pagination{
 }
 </style>
 <ul class="pagination">
-    {$this->pagination()}
+    {$this->list}
 </ul>
 html;
     }
     public function pagination(){
         $prevPage = (( $this->pageNo - 1 ) > 0) ? ($this->pageNo - 1) : 1;
         $prev_disabled = ($this->pageNo == 1) ? "display:none;" : "";
-        echo "<li style='{$prev_disabled}'><a href='?{$this->pageName}=1{$this->link}'>First</a></li>";
-        echo "<li style='{$prev_disabled}'><a href='?{$this->pageName}={$prevPage}{$this->link}'>Previous</a></li>";
+        $this->list .= "<li style='{$prev_disabled}'><a href='?{$this->pageName}=1{$this->link}'>First</a></li>";
+        $this->list .= "<li style='{$prev_disabled}'><a href='?{$this->pageName}={$prevPage}{$this->link}'>Previous</a></li>";
         $this->simple();
         $nextPage = (($this->pageNo+1) < $this->totalRows) ? ($this->pageNo+1) : $this->totalRows;
         $next_disabled = ($this->pageNo == $this->totalRows) ? "display:none;" : "";
-        echo "<li style='{$next_disabled}'><a href='?{$this->pageName}={$nextPage}{$this->link}'>Next</a></li>";
-        echo "<li style='{$next_disabled}' ><a href='?{$this->pageName}={$this->totalRows}{$this->link}'>Last</a></li>";
+        $this->list .= "<li style='{$next_disabled}'><a href='?{$this->pageName}={$nextPage}{$this->link}'>Next</a></li>";
+        $this->list .= "<li style='{$next_disabled}' ><a href='?{$this->pageName}={$this->totalRows}{$this->link}'>Last</a></li>";
     }
     public function simple(){
         for ($i=1; $i <= $this->totalRows ; $i++) {
             $active = ($this->pageNo == $i) ? "background-color:green;" : "";
             if (abs($this->pageNo - $i) < 5) {
-                echo "<li style='{$active}'><a href='?{$this->pageName}={$i}{$this->link}'>{$i}</a></li>";
+                $this->list .= "<li style='{$active}'><a href='?{$this->pageName}={$i}{$this->link}'>{$i}</a></li>";
             }
         }
     }
     public function bootstrap(){
         $prevPage = (( $this->pageNo - 1 ) > 0) ? ($this->pageNo - 1) : 1;
         $prev_disabled = ($this->pageNo == 1) ? "disabled" : "";
-        echo "<li class='page-item {$prev_disabled}'><a class='page-link' href='?{$this->pageName}=1{$this->link}'>First</a></li>";
-        echo "<li class='page-item {$prev_disabled}'><a class='page-link' href='?{$this->pageName}={$prevPage}{$this->link}'>Previous</a></li>";
+        $this->list .= "<li class='page-item {$prev_disabled}'><a class='page-link' href='?{$this->pageName}=1{$this->link}'>First</a></li>";
+        $this->list .= "<li class='page-item {$prev_disabled}'><a class='page-link' href='?{$this->pageName}={$prevPage}{$this->link}'>Previous</a></li>";
         for ($i=1; $i <= $this->totalRows ; $i++) {
             $active = ($this->pageNo == $i) ? "active" : "";
             if (abs($this->pageNo - $i) < 5) {
-                echo "<li class='page-item {$active}'><a class='page-link' href='?{$this->pageName}={$i}{$this->link}'>{$i}</a></li>";
+                $this->list .= "<li class='page-item {$active}'><a class='page-link' href='?{$this->pageName}={$i}{$this->link}'>{$i}</a></li>";
             }
         }
         $nextPage = (($this->pageNo+1) < $this->totalRows) ? ($this->pageNo+1) : $this->totalRows;
         $next_disabled = ($this->pageNo == $this->totalRows) ? "disabled" : "";
-        echo "<li class='page-item {$next_disabled}'><a class='page-link' href='?{$this->pageName}={$nextPage}{$this->link}'>Next</a></li>";
-        echo "<li class='page-item {$next_disabled}'><a class='page-link' href='?{$this->pageName}={$this->totalRows}{$this->link}'>Last</a></li>";
+        $this->list .= "<li class='page-item {$next_disabled}'><a class='page-link' href='?{$this->pageName}={$nextPage}{$this->link}'>Next</a></li>";
+        $this->list .= "<li class='page-item {$next_disabled}'><a class='page-link' href='?{$this->pageName}={$this->totalRows}{$this->link}'>Last</a></li>";
     }
 }
 ?>
